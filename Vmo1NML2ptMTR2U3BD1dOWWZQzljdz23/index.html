@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+    <html lang="en"><!--<![endif]--><!-- BEGIN HEAD --><head>
+        <meta charset="utf-8"><title> ভূমি উন্নয়ন কর সিস্টেম অটোমেশন:
+               LdtaxHoldings</title>
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       
+       <meta content="width=600, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=no" name="viewport">
+       
+       <meta content="" name="description">
+       <meta content="" name="author">
+       <!-- BEGIN GLOBAL MANDATORY STYLES -->
+       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css">
+       <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+       <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+       <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+       <!-- remove checkbox add.ctp -->
+       <!-- <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/> -->
+       <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css">
+       
+       <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css">
+       
+       <!-- remove checkbox add.ctp -->
+       <!-- <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/css/plugins-md.css" rel="stylesheet" type="text/css"/> -->
+       <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/admin/layout4/css/layout.css" rel="stylesheet" type="text/css">
+       <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/admin/layout4/css/themes/light.css" rel="stylesheet" type="text/css" id="style_color">
+       <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/admin/layout4/css/custom.css" rel="stylesheet" type="text/css">
+       <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/css/common.css" rel="stylesheet" type="text/css">
+       <link href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/css/custom.css" rel="stylesheet" type="text/css">
+       
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+       
+                   <link rel="shortcut icon" href="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/img/favicon.ico">
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+       <style type="text/css">
+           /* Chrome, Safari, Edge, Opera */
+           input::-webkit-outer-spin-button,
+           input::-webkit-inner-spin-button {
+             -webkit-appearance: none;
+             margin: 0;
+           }
+       
+           /* Firefox */
+           input[type=number] {
+             -moz-appearance: textfield;
+           }
+           span.input-group-addon.addonExtra {
+               background: #8dc642;
+           }
+       </style>
+       
+       <style>
+               .loaderDiv{
+                 background: rgba(255,255,255,.95);
+                 width: 100%;
+                 height: 100%;
+                 z-index: 10000;
+                 position: fixed;
+                 top: 0;
+                 left: 0;
+                 display: none;
+               }
+               .loader {
+       
+                 border: 5px solid #f3f3f3;
+                 border-radius: 50%;
+                 border-top: 5px solid blue;
+                 border-bottom: 5px solid green;
+                 -webkit-animation: spin 2s linear infinite;
+                 animation: spin 2s linear infinite;
+                 /*position: relative;*/
+                 display: none;
+                 left: 47%;
+                 top: 36%;
+                 height: 50px;
+                 width: 50px;
+       
+               }
+       
+               @-webkit-keyframes spin {
+                 0% { -webkit-transform: rotate(0deg); }
+                 100% { -webkit-transform: rotate(360deg); }
+               }
+       
+               @keyframes spin {
+                 0% { transform: rotate(0deg); }
+                 100% { transform: rotate(360deg); }
+               }
+           </style>
+       
+       </head>
+       <!-- END HEAD -->
+       <!-- BEGIN BODY -->
+       <!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+       <!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+       <!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+       <!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+       <!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+       <!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+       <!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+       <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+       <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+       <body class="page-md page-sidebar-page-sidebar-closed-hide-logo page-header-fixed page-footer-fixed">
+         <div class="loaderDiv">
+           <div class="loader" style="align-content: center; width:300px; height: 300px; top: 0;"></div>
+           <div style="color:green; font-weight: bold; font-size:24px; text-align: center; position: fixed; width:100%; top: 18%;" class="loadMsg">লোড হচ্ছে। <br>অনুগ্রহ করে <span style="color: red;">অপেক্ষা</span> করুন।</div>
+         </div>
+           
+       <div class="page-header md-shadow-z-1-i navbar navbar-fixed-top">
+           <!-- BEGIN HEADER INNER -->
+           <div class="page-header-inner">
+               <!-- BEGIN LOGO -->
+               <div class="page-logo">
+                   <!-- <a href=""> -->
+                       
+                   <a href="https://office.land.gov.bd/"> 
+                       <img src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/admin/layout4/img/logo-light.png" alt="logo" class="logo-default">
+                   </a>
+                           </div>
+       
+               <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+               </a>
+       
+       
+               <div class="page-top">
+       
+                   <div class="top-menu">
+                       <ul class="nav navbar-nav pull-right">
+       
+                           <li class="separator hide">
+                           </li>
+                           <li><br>
+       
+                           </li>
+       
+                           <li class="separator hide">
+                           </li>
+       
+                                               <img src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/admin/layout4/img/nagorik.png">
+                                
+                           <!-- END USER LOGIN DROPDOWN -->
+                       </ul>
+                   </div>
+                   <!-- END TOP NAVIGATION MENU -->
+               </div>
+               <!-- END PAGE TOP -->
+           </div>
+           <!-- END HEADER INNER -->
+       </div>
+       <!-- END HEADER-->
+       
+       <!-- <div>You will be auto logged out in <span id="timeOut"></span> seconds.</div> -->
+       <div class="clearfix">
+       </div>
+           <!-- BEGIN CONTAINER -->
+       
+       
+               <div class="page-container">
+               <!-- BEGIN SIDEBAR -->
+                   <!-- END SIDEBAR -->
+       
+       
+               <div class="page-content-wrapper">
+                                   <div class="">
+                                                                          <!-- end -->
+       
+       <div class="row">
+           <div class="col-md-12">
+               <div class="portlet box blue">
+                   <div class="portlet-title">
+                       <div class="caption">
+                           <i class="fa fa-globe"></i>ভূমি উন্নয়ন কর পরিশোধ রসিদ</div>
+                       <div class="tools" style="display: none;">
+                           <a href="javascript:;" class="collapse">
+                           </a>
+                           <a href="#portlet-config" data-toggle="modal" class="config">
+                           </a>
+                           <a href="javascript:;" class="reload">
+                           </a>
+                           <a href="javascript:;" class="remove">
+                           </a>
+                       </div>
+                   </div>
+       
+                   <div class="portlet-body">
+                       <div class="row">
+                           <div class="col-md-12">
+                               <div style="text-align: center !important; display: block !important;">
+                                   <input style="margin-top: 10px; padding: 10px;" id="print" class="btn btn-md blue" type="button" onclick="printDiv('printArea')" value="প্রিন্ট">
+                                   <!-- <a class="btn btn-md btn-success" href="https://ldtax.gov.bd/ldtax-holdings/individual-rashid-print-offline-preview/S3dzcExNRzF2Umw3YlFtNTcvNlZSdz09" target="_blank" style="margin-top: 10px;padding:10px;">PDF</a> -->
+                               </div>
+                           </div>
+                       
+                           <div id="printArea" style="width: 815px; margin: 0 auto;">
+                               <div class="col-md-12">
+                                   <style type="text/css">
+                                       body{
+                                           font-family: "kalpurush",Arial,sans-serif;
+                                           font-size: 13px !important;
+                                           line-height: 1.2;
+                                           color: #333;
+                                           background-color: #fff;
+                                       }
+                                       .dotted_botton{
+                                           border:none;
+                                           border-bottom:1px dotted #000;
+                                           background-color:#fff;
+                                       }
+                                       .border_none{
+                                           border-top: none !important;
+                                       }
+                                       .table-bordered {
+                                           border: 1px solid #ddd;
+                                       }
+                                       .qrcode-print{
+                                          width:100%;
+                                          display: list-item;
+                                          list-style-image: url('data:image/png;base64,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');
+                                          list-style-position: inside;
+                                          background-repeat: no-repeat;
+                                       }
+                                       .b1 {border: 1px dotted; padding: 2px;}
+                                   </style>
+                                   <style type="text/css" media="print">
+                                       @page {
+                                           size:  a4;   /* auto is the initial value */
+                                           margin: 0mm;  /* this affects the margin in the printer settings */
+                                       }
+                                       html{
+                                           background-color: #FFFFFF; 
+                                           margin: 0px;  /* this affects the margin on the html before sending to printer */
+                                       }
+                                       body{
+                                           border: solid 0px blue ;
+                                           margin: 0mm; /* margin you want for the content */
+                                       }
+                                   </style>
+       
+                                   <div style="font-family:'kalpurush',Arial,sans-serif; font-size:14px !important; line-height:1.2;color: #333; background-color: #fff; width: 7.9in; height: 11in; border-radius: 10px; border: dotted 1px; padding: 10px; float: left; margin: 30px auto; position: relative;">
+                                       <div class="row">
+                                           <div class="col-md-12">
+                                               <div class="from-controll">
+                                                   <table style="width: 100%;">
+                                                       <tbody><tr>
+                                                           <td class="text-left">বাংলাদেশ ফরম নং ১০৭৭</td>
+                                                           <td class="text-right">(পরিশিষ্ট: ৩৮)</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td class="text-left">(সংশোধিত)</td>
+                                                           <td class="text-right input_bangla">ক্রমিক নং ৭৬৩৯২৪০৫৬৯৫</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td class="text-center" colspan="2">
+                                                               ভূমি উন্নয়ন কর পরিশোধ রসিদ                                                    </td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td class="text-center" colspan="2">
+                                                               (অনুচ্ছেদ ৩৯২ দ্রষ্টব্য)                                                    </td>
+                                                       </tr>
+                                                   </tbody></table>
+                                                   <div style="width: 100%; height: 20px;"></div>
+                                                   <table style="width:100%;">
+                                                       <tbody><tr>
+                                                           <td style="width: 320px;">সিটি কর্পোরেশন /পৌর /ইউনিয়ন ভূমি অফিসের নাম  :</td>
+                                                           <td class="dotted_botton">মুলাডুলি ইউনিয়ন ভূমি অফিস</td>
+                                                       </tr>
+                                                   </tbody></table>
+                                                   <table style="margin-top:5px; width:100%;">
+                                                       <tbody><tr>
+                                                           <td style="width: 170px;">                                                        মৌজার নাম ও জে. এল. নং:
+                                                           </td>
+                                                           <td class="dotted_botton input_bangla" style="padding: 0 10px 0 5px;">মুলাডুলি - ৬৫</td>
+                                                           <td style="width: 105px">উপজেলা / থানা  :</td>
+                                                           <td class="dotted_botton" style="padding: 0 10px 0 5px;">ঈশ্বরদী</td>
+                                                           <td style="width: 40px">জেলা:</td>
+                                                           <td class="dotted_botton" style="padding: 0 10px 0 5px;">পাবনা</td>
+                                                       </tr>
+                                                   </tbody></table>
+                                                   
+                                                   <table style="margin-top:5px; width:100%;">
+                                                       <tbody><tr>
+                                                           <td style="width: 225px"><!-- ২ নং রেজিস্টার অনুযায়ী হোল্ডিং নম্বার -->
+                                                           ২ নং রেজিস্টার অনুযায়ী হোল্ডিং নম্বর:</td>
+                                                           <td class="dotted_botton numeric_bangla" style="padding-left: 10px;">
+                                                               ৩৮৫০                                                    </td>
+                                                       </tr>
+                                                   </tbody></table>
+       
+                                                   <table style="margin-top:5px; width:100%;">
+                                                       <tbody><tr>
+                                                           <td style="width: 75px">খতিয়ান নং:</td>
+                                                           <td class="dotted_botton numeric_bangla" style="padding-left: 10px;">
+                                                               ১০৭                                                    </td>
+                                                       </tr>
+                                                   </tbody></table>
+                                                   <div style="height: 10px"></div>
+                                               </div>
+       
+                                               <div class="from-controll">
+                                                   <p style="font-weight: bold; font-size: 12px; text-align: center; margin: 0px; padding: 0px;"><u>মালিকের বিবরণ</u></p>
+                                               </div>
+                                                                                                               <table style="border: 1px dotted; border-collapse: collapse; margin:10px 2px ; width: 49%; font-size: 11px; float: left;">
+                                                   <thead>
+                                                       <tr>
+                                                           <th style="width:10%;text-align: center;" class="b1">ক্রমঃ</th>
+                                                           <th style="width:60%;text-align: center;" class="b1">মালিকের নাম</th>
+                                                           <th style="width:25%;text-align: center;" class="b1">মালিকের অংশ</th>
+                                                       </tr>
+                                                   </thead>
+                                                   <tbody style="height: 21px;">
+                                                                                               <tr>
+                                                           <td class="b1 input_bangla">১</td>
+                                                           <td class="b1 input_bangla">আমিনুল</td>
+                                                           <td class="b1 input_bangla text-right">০.৫০০</td>
+                                                       </tr>
+                                                                                               
+                                                                                           </tbody>
+                                               </table>
+
+                                               <table style="border: 1px dotted; border-collapse: collapse; margin:10px 2px ; width: 49%; font-size: 11px; float: left;">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width:10%;text-align: center;" class="b1">ক্রমঃ</th>
+                                                        <th style="width:60%;text-align: center;" class="b1">মালিকের নাম</th>
+                                                        <th style="width:25%;text-align: center;" class="b1">মালিকের অংশ</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="height: 21px;">
+                                                                                            <tr>
+                                                        <td class="b1 input_bangla">২</td>
+                                                        <td class="b1 input_bangla">মোছাঃ মুন্নী খাতুন</td>
+                                                        <td class="b1 input_bangla text-right">০.৫০০</td>
+                                                    </tr>
+                                                                                            
+                                                                                        </tbody>
+                                            </table>
+                                                                               
+                                       </div></div><div class="col-md-12">
+                                                           <p style="font-weight: bold; font-size: 12px; text-align: center; margin: 0px; padding: 0px;"><u>জমির বিবরণ</u></p>
+                                                       </div><div class="row"><div class="col-md-12">                                        
+                                                        <table style="border: 1px dotted; border-collapse: collapse; margin:10px 2px ; width: 100%; font-size: 11px; float: left;">
+                                                   <thead>
+                                                       <tr>
+                                                           <th class="b1">ক্রমঃ</th>
+                                                           <th class="b1">দাগ নং</th>
+                                                           <th class="b1">জমির শ্রেণি</th>
+                                                           <th class="b1">জমির পরিমাণ (শতাংশ)</th>
+                                                       </tr>
+                                                   </thead>
+                                                   <tbody style="height: 21px;">
+                                                        <tr>
+                                                           <td class="b1 input_bangla">১</td>
+                                                           <td class="b1 input_bangla">৮১৮</td>
+                                                           <td class="b1">
+                                                               ধানী( কৃষি)                                                    </td>
+                                                           <td class="b1 input_bangla">৪১.২৫০০০</td>
+                                                       </tr>
+                                                        
+
+                                                                                               
+                                                                                           </tbody>
+                                                                                           
+                                               </table>
+                                              
+                                              
+                                       
+                                               <table style="border: 1px dotted; border-collapse: collapse; margin:10px 2px ; width: 100%; font-size: 12px;">
+                                                   <tbody><tr>
+                                                       <td class="b1 text-center" style="width: 50%;">সর্বমোট জমি (শতাংশ)</td>
+                                                       <td class="b1 input_bangla" style="width: 50%;">৪১.২৫</td>
+                                                   </tr>
+                                               </tbody></table>
+                                               <div style="height: 10px;"></div>
+                                               <table class="table table-striped table-bordered table-hover" style="margin:10px 2px ; width:100% !important;">
+                                                   <tbody><tr>
+                                                       <th style="text-align: center;" colspan="8">আদায়ের বিবরণ </th>
+                                                   </tr>
+       
+                                                   <tr>
+                                                       <td style="text-align: center;">তিন বৎসরের ঊর্ধ্বের বকেয়া</td>
+                                                       <td style="text-align: center;">গত তিন বৎসরের বকেয়া</td>
+                                                       <td style="text-align: center;">বকেয়ার সুদ ও ক্ষতিপূরণ</td>
+                                                       <td style="text-align: center;">হাল দাবি</td>
+                                                       <td style="text-align: center;">মোট দাবি</td>
+                                                       <td style="text-align: center;">মোট আদায়</td>
+                                                       <td style="text-align: center;">মোট বকেয়া</td>
+                                                       <td style="text-align: center;">মন্তব্য</td>
+                                                   </tr>
+       
+                                                   <tr>
+                                                       <td align="center">০</td>
+                                                       <td align="center">০</td>
+                                                       <td align="center">০</td>
+                                                       <td align="center">১০</td>
+                                                       <td align="center">
+                                                           ১০</td>
+       
+                                                       <td align="center">১০</td>
+                                                       <td align="center">
+                                                           ০                                                </td>
+                                                       <td align="center"></td>
+                                                   </tr>
+                                               </tbody></table>
+                                               <div style="width:100% !important; margin:10px 2px ;">
+                                                   <p class="dotted_botton"> সর্বমোট (কথায়):
+                                                                                                       দশ টাকা মাত্র ।
+                                                   </p>
+                                               </div>
+                                               <div class="row">
+                                                   <div class="col-md-12">
+                                                       <div style="width: 360px; float: left;" align="left">
+                                                           <p style="margin: 0 !important;"></p><p style="margin: 0 !important;">নোট: সর্বশেষ কর পরিশোধের সাল - 2024-2025 (অর্থবছর)</p><p></p>
+                                                           <p class="input_bangla"> চালান নং : </p>
+                                                           <p>
+                                                               তারিখ : </p><div style="margin-top: -37px;margin-left: 10px;"><p style="width: 115px;padding: 0;margin: 0;margin-left: 38px;margin-bottom: 2px;">০৯ অগ্রহায়ণ ১৪৩১</p><span style="border-top:1px solid; margin-left:36px;">২৪ নভেম্বর, ২০২৪</span><p></p></div>
+                                                           <p></p>
+                                                       </div>
+                                                       <div style="width: 90px; float: left;" align="center">
+                                                           <div class="qrcode-print"></div>
+                                                       </div>
+                                                       <div style="width: 265px; float: right; text-align: right;font-size: 12px;font-family: 'kalpurush',Arial,sans-serif;">
+                                                                                                                   <p class="text-center" style="padding: 5px; ">এই দাখিলা ইলেক্ট্রনিকভাবে তৈরি করা হয়েছে, <br> কোন স্বাক্ষর প্রয়োজন নেই।</p>
+                                                                                                           </div>
+                                                   </div>   
+                                               </div>   
+                                           </div>
+                                       </div>
+                                       <div class="row">
+                                           <div class="col-md-12 text-right" style="width: 100%; position: absolute; bottom: 0; right: 0;">
+                                               <div style="width: 100%; border-top: 1px dotted gray; margin-top:15px;"></div>
+                                               <div class="from-controll">1/1</div>
+                                           </div>
+                                       </div>                 
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <!-- // -->
+                       
+                   </div>
+               </div>
+           </div>
+       </div>
+       
+       <script type="text/javascript">
+           function printDiv(divName) {
+               var printContents = document.getElementById(divName).innerHTML;
+               var originalContents = document.body.innerHTML;
+       
+               document.body.innerHTML = printContents;
+               // setTimeout(function() {}, 500);
+               window.print();
+       
+               document.body.innerHTML = originalContents;
+           }
+       </script>
+       
+                           </div>
+               </div>
+       
+               </div>
+               <style>
+           .title{
+               font-size: 15px;
+               color: #592e80;
+               text-align: center;
+               font-weight: 600;
+               padding-bottom: 7px;
+           }
+       
+       </style>
+       
+       <div class="page-footer">
+           <div class="page-footer-inner">
+                   <a href="http://www.bangladesh.gov.bd/" target="_blank">
+           <img src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/admin/layout4/img/bd.png" alt="">
+           </a> <span class="title">ভূমি সংস্কার বোর্ড, ভূমি  মন্ত্রণালয়, গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</span>
+       <!--   <a href="http://www.a2i.pmo.gov.bd/" target="_blank">
+           <img src="https://ldtax.gov.bd/assets/admin/layout4/img/a2i.png" alt=""/>
+                   </a> -->
+               &nbsp;&nbsp;
+           </div>
+           <div class="page-footer-inner pull-right">
+               <span class="title">কারিগরি সহায়তায়</span>
+               <a href="http://mysoftheaven.com/" target="_blank">
+                   <img src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/img/auto.png" alt="" style="width: 140px;">
+               </a>
+               &nbsp;&nbsp;
+           </div>
+       </div>
+       
+       <!--<div id="lang-vis-control" style="width:50%;float:right;text-align: right;">
+           <h6>  </h6>
+           </div>
+           <div class="scroll-to-top">
+               <i class="icon-arrow-up"></i>
+           </div>
+       </div>-->
+       
+           <!-- END FOOTER -->
+       <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+       <!-- BEGIN CORE PLUGINS -->
+       <!--[if lt IE 9]>
+       <script src="https://ldtax.gov.bd/assets/global/plugins/respond.min.js"></script>
+       <script src="https://ldtax.gov.bd/assets/global/plugins/excanvas.min.js"></script>
+       <![endif]-->
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+       <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+       <!-- END CORE PLUGINS -->
+       <!-- Latest compiled JavaScript -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+       
+       
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+       
+       
+       <!-- END PAGE LEVEL PLUGINS -->
+       <!-- BEGIN PAGE LEVEL SCRIPTS -->
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/jquery-notific8/jquery.notific8.min.js"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/plugins/bootstrap-toastr/toastr.min.js"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/global/scripts/metronic.js" type="text/javascript"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/admin/layout4/scripts/layout.js" type="text/javascript"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/assets/admin/layout4/scripts/demo.js" type="text/javascript"></script>
+       <script src="../Vmo1N1dOWWZML2ptMTR2U3BDQzljdz09/js/style.js?v=2024071809"></script>
+       <!--<script src="https://ldtax.gov.bd/assets/admin/pages/scripts/charts-amcharts.js"></script>-->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js" integrity="sha512-cJMgI2OtiquRH4L9u+WQW+mz828vmdp9ljOcm/vKTQ7+ydQUktrPVewlykMgozPP+NUBbHdeifE6iJ6UVjNw5Q==" crossorigin="anonymous"></script>
+       
+       <script src="/js/jquery.form.min.js"></script><script src="/js/jquery.jqprint-0.3.js"></script><script src="/js/application_receipt.js"></script><script src="https://ldtax.gov.bd/js/tinymce/js/tinymce/tinymce.min.js"></script>
+       <script>
+               // New script for session
+               var IdealTimeOut = 180*60; //30 minute
+               var idleSecondsTimer = null;
+               var idleSecondsCounter = 0;
+               document.onclick = function () { idleSecondsCounter = 0; };
+               document.onmousemove = function () { idleSecondsCounter = 0; };
+               document.onkeypress = function () { idleSecondsCounter = 0; };
+               idleSecondsTimer = window.setInterval(CheckIdleTime, 1000);
+       
+               function CheckIdleTime() {
+                   idleSecondsCounter++;
+                   var oPanel = document.getElementById("timeOut");
+                   if (oPanel) {
+                       oPanel.innerHTML = (IdealTimeOut - idleSecondsCounter);
+                   }
+                   if (idleSecondsCounter >= IdealTimeOut) {
+                       window.clearInterval(idleSecondsTimer);
+                       alert("Your Session has expired. Please login again.");
+                       window.location = "http://lims.land.gov.bd/limslrb/ldtax/dashboard/logout";
+                   }
+       
+               }
+       
+       jQuery(document).ready(function() {
+       
+           $('#demandType, #chnageOwner,#demand-type').change(function(){
+               var item=$(this).val();
+               if(item==0){
+                   $('.ownerPlaceholder').attr('placeholder','পিতার নাম/ স্বামীর নাম');
+                   $('#ownerText').html('পিতার নাম/ স্বামীর নাম');
+               }
+               else{
+                  $('.ownerPlaceholder').attr('placeholder','সংস্থা  নাম');
+                  $('#ownerText').html('সংস্থা  নাম');
+               }
+           })
+       
+           $('textarea').removeClass('input_bangla');
+       
+           $('.page-sidebar-menu').slimscroll({
+                 height : '450px'
+           });
+       
+       
+           $(':input[type=file]').on('change', function(){ //on file input change
+       
+               if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+               {
+                   $('#thumb-output').html(''); //clear html of output element
+                       var data = $(this)[0].files; //this file data
+       
+                       $.each(data, function(index, file){ //loop though each file
+                           if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+                               var fRead = new FileReader(); //new filereader
+                               fRead.onload = (function(file){ //trigger function on successful read
+                               return function(e) {
+                                   var img = $('<img/>').addClass('thumb').attr('src', e.target.result); //create image element
+                                   $('#thumb-output').append(img); //append image to output element
+                               };
+                               })(file);
+                               fRead.readAsDataURL(file); //URL representing the file's data.
+                           }
+                       });
+               }else{
+                   alert("Your browser doesn't support File API!"); //if File API is absent
+               }
+           });
+       
+           // $("#chnageOwner,#mouja_id,#ldtax_holdings_tax_clear_year,#ldtax-holding-land-schedules-1-land-type,#ldtax-holding-land-schedules-1-ldtax-holding-usable-informations-1-land-type,#ldtax-holding-land-schedules-1-ldtax-holding-usable-informations-1-start-year,#ldtax-holding-land-schedules-1-ldtax-holding-usable-informations-1-end-year").select2();
+       
+           $('#demand_type,#tax_clear_year,#khatian_survey_id,#block,#sectorSection,#housingName').select2({ width: '100%' });
+           //$('#tax_clear_year').select2();
+       
+           // validate mobile number
+       
+           $('#ldtax-holding-owners-1-land-portion,#amount_of_land').bind('keydown', function(e){
+       
+               var num = this.value;
+               if(num.indexOf(".")>=0){
+                   if(e.key == '।' || e.key == '.'){
+                   $(this).val('');
+                   e.preventDefault();
+                   }
+                   if(e.key!= 0 && e.key != 1 && e.key!= 2 && e.key!= 3 && e.key!= 4 && e.key!= 5 && e.key!= 6 && e.key!= 7 && e.key!= 8 && e.key!= 9 && e.key!= '০' && e.key != '১' && e.key!= '২' && e.key!= '৩' && e.key!= '৪' && e.key!= '৫' && e.key!= '৬' && e.key!= '৭' && e.key!= '৮' && e.key!= '৯' && e.keyCode!= 8 && e.keyCode!= 9 && e.keyCode!= 16 && e.keyCode!= 37 && e.keyCode!= 38 && e.keyCode!= 39 && e.keyCode!= 40){
+                       e.preventDefault();
+                   }
+               }else{
+                   if(e.key == '।'){
+                       num +='।';
+                       var res = num.replace("।",".");
+                       $(this).val(res);
+                       e.preventDefault();
+                   }
+       
+                   if(e.keyCode== 32){
+                       e.preventDefault();
+                   }
+       
+                   if(e.key!= 0 && e.key != 1 && e.key!= 2 && e.key!= 3 && e.key!= 4 && e.key!= 5 && e.key!= 6 && e.key!= 7 && e.key!= 8 && e.key!= 9 && e.key!= '০' && e.key != '১' && e.key!= '২' && e.key!= '৩' && e.key!= '৪' && e.key!= '৫' && e.key!= '৬' && e.key!= '৭' && e.key!= '৮' && e.key!= '৯' && e.key!= '.' && e.keyCode!= 8 && e.keyCode!= 9 && e.keyCode!= 16 && e.keyCode!= 37 && e.keyCode!= 38 && e.keyCode!= 39 && e.keyCode!= 40){
+                       e.preventDefault();
+                   }
+               }
+       
+           });
+       
+           $(document).on('focus', '.select2.select2-container', function (e) {
+       
+             var isOriginalEvent = e.originalEvent // don't re-open on closing focus event
+             var isSingleSelect = $(this).find(".select2-selection--single").length > 0 // multi-select will pass focus to input
+       
+             if (isOriginalEvent && isSingleSelect) {
+               $(this).siblings('select:enabled').select2('open');
+               // $('input[type=search]').addClass('input_bangla');
+             }
+           });
+       
+           $(document).on('keyup', '.select2-search__field', function (e) {
+               var input = $(this).val();
+               console.log(input);
+               var numbers =  { 0: '০',1: '১',2: '২',3: '৩',4: '৪',5: '৫',6: '৬',7: '৭',8: '৮',9: '৯'};
+               var output = [];
+               for (var i = 0; i < input.length; ++i) {
+                   if (numbers.hasOwnProperty(input[i])) {
+                       output.push(numbers[input[i]]);
+                   } else {
+                       output.push(input[i]);
+                   }
+               }
+               $(this).val(output.join('')).trigger('input');
+           });
+       
+       
+           // initiate layout and plugins
+           Metronic.init(); // init metronic core components
+           Layout.init(); // init current layout
+           Demo.init(); // init demo features
+           //ChartsAmcharts.init();
+       
+       });
+       
+       const convertBanglaToEnglishNumber=(str)=>{
+               let banglaNumber=
+                   {'০': 0,
+                   '১': 1,
+                   '২': 2,
+                   '৩': 3,
+                   '৪': 4,
+                   '৫': 5,
+                   '৬': 6,
+                   '৭': 7,
+                   '৮': 8,
+                   '৯': 9}
+               for (var x in banglaNumber) {
+                   str = str.toString().replace(new RegExp(x, 'g'), banglaNumber[x]);
+               }
+               return str;
+           }
+       
+           $('.land_portion').on('keyup',function(){
+               var land_portion = parseFloat(0);
+       
+               $(".land_portion").each(function() {
+                   if($(this).val().length<1){
+                       var value =  0;
+                   }else{
+                       var value =  $(this).val();
+                   }
+                   land_portion += parseFloat(convertBanglaToEnglishNumber(value));
+               });
+       
+               if(land_portion.toFixed(6) > 1){
+                   $(this).val(0);
+               }
+           });
+       
+           $("#chnageOwner,#mouja_id,#ldtax_holdings_tax_clear_year,#ldtax-holding-land-schedules-1-land-type,#ldtax-holding-land-schedules-1-ldtax-holding-usable-informations-1-land-type,#ldtax-holding-land-schedules-1-ldtax-holding-usable-informations-1-start-year,#ldtax-holding-land-schedules-1-ldtax-holding-usable-informations-1-end-year").addClass('select2');
+       
+           $('.select2').select2({});
+       
+       
+       
+       </script>
+       
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+       <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-MGR6JSR2BN"></script>
+       <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+       
+         gtag('config', 'G-MGR6JSR2BN');
+       </script>
+       
+       <script type="text/javascript">
+       
+       
+              jQuery('#housingName').change(function () {
+                   jQuery('.sectorSection').html('<img src="' + webPath + 'assets/global/img/loading-spinner-blue.gif' + '">');
+                   jQuery.get(webPath + 'LdTaxholdingReports/getSector/' + jQuery('#housingName').val(), function (data) {
+                       jQuery('.sectorSection').html(data);
+                   });
+                   jQuery('.block').html('<img src="' + webPath + 'assets/global/img/loading-spinner-blue.gif' + '">');
+                   jQuery.get(webPath + 'LdTaxholdingReports/getBlock/' + jQuery('#housingName').val(), function (data) {
+                       jQuery('.block').html(data);
+                   });
+               });
+       
+       </script>
+       
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+       <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-T53D39JLTB"></script>
+       <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+       
+         gtag('config', 'G-T53D39JLTB');
+       </script> -->
+       <!-- <script type="text/javascript">
+           function deleteAllCookies() {
+               var cookies = document.cookie.split(";");
+       
+               for (var i = 0; i < cookies.length; i++) {
+                   var cookie = cookies[i];
+                   var eqPos = cookie.indexOf("=");
+                   var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                   document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+               }
+           }
+       
+       deleteAllCookies();
+       </script> -->
+       
+           <!-- <script src="http://devlims.land.gov.bd/limslrb/ldtax/js/style.js"></script> -->
+       
+       </body></html>
